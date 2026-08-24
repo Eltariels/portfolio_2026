@@ -4,7 +4,9 @@ export const profile = {
   status: 'À la recherche d\'une alternance',
   bio: "Tombé dans la marmite du code dès la 5ème, je cherche une alternance en développement web full stack et/ou no-code.",
   bioLong:
-    "Développeur web depuis le collège, je me forme aujourd'hui en Mastère Développement Full Stack à Lyon après un BUT MMI à Chambéry. J'ai déjà accompagné plusieurs entreprises sur des projets complets : sites vitrines, e-commerce, plateformes sur-mesure, en no-code (WordPress, Elementor, Drupal) comme en code (React, Node, MongoDB). Basé en Savoie, mobile sur Chambéry, Lyon, Grenoble et Annecy.",
+    "Développeur web depuis le collège, je me forme aujourd'hui en Mastère Développement Full Stack à Lyon après un BUT MMI à Chambéry. J'ai déjà accompagné plusieurs entreprises sur des projets complets : sites vitrines, e-commerce, plateformes sur-mesure, en no-code (WordPress, Elementor, Drupal) comme en code (React, Node, MongoDB). Basé à Ambérieu-en-Bugey (Ain), mobile sur Chambéry, Lyon, Grenoble et Annecy.",
+  base: 'Ambérieu-en-Bugey, Ain, FR',
+  specialty: 'WordPress · Dev Web Full Stack & No-Code',
   location: 'Chambéry, Lyon, Grenoble, Annecy',
   email: 'theo.borella.hc@gmail.com',
   phone: '06 74 60 36 50',

@@ -4,9 +4,9 @@ import { profile } from '../data/profile'
 
 const stats = [
   { label: 'Statut', value: profile.status },
-  { label: 'Base', value: 'Savoie, FR' },
+  { label: 'Base', value: profile.base },
   { label: 'Rayon', value: 'Chambéry · Lyon · Grenoble · Annecy' },
-  { label: 'Spécialité', value: 'Full Stack & No-Code' },
+  { label: 'Spécialité', value: profile.specialty },
 ]
 
 const teasers = [
@@ -35,7 +35,7 @@ export default function Home() {
     <>
       <Seo
         title="Accueil"
-        description="Théo Borella, développeur web full stack & no-code en alternance, basé en Savoie. Découvrez mon parcours, mes compétences et mes projets."
+        description="Théo Borella, développeur web full stack & no-code en alternance, basé à Ambérieu-en-Bugey (Ain). Découvrez mon parcours, mes compétences et mes projets."
         path="/"
         jsonLd={{
           '@context': 'https://schema.org',
@@ -46,7 +46,8 @@ export default function Home() {
           url: profile.site,
           address: {
             '@type': 'PostalAddress',
-            addressRegion: 'Savoie',
+            addressLocality: 'Ambérieu-en-Bugey',
+            addressRegion: 'Ain',
             addressCountry: 'FR',
           },
           sameAs: [profile.linkedin],

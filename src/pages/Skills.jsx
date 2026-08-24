@@ -50,10 +50,10 @@ export default function Skills() {
           <div className="hud-divider mb-8">
             <h2 className="font-display text-2xl uppercase text-ink-100">Outils</h2>
           </div>
-          <ul className="grid gap-3 sm:grid-cols-2">
+          <ul className="space-y-2.5">
             {tools.map((tool) => (
               <li key={tool} className="flex items-start gap-3 font-ui text-ink-200">
-                <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rotate-45 bg-cyan-400 shadow-glow-cyan" />
+                <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rotate-45 bg-cyan-400 shadow-glow-cyan" />
                 <span>{tool}</span>
               </li>
             ))}

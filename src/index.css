@@ -94,8 +94,10 @@
     @apply mt-1 font-display text-sm text-ink-100;
   }
 
+  /* ol has pl-8 (32px) so the border-l sits 32px left of the li; center a 12px
+     (h-3/w-3) diamond on that line: -(32px + 6px half-width) = -38px */
   .timeline-node {
-    @apply absolute -left-[7px] top-1.5 h-3 w-3 rotate-45 border border-cyan-400 bg-void-900 shadow-glow-cyan;
+    @apply absolute -left-[38px] top-1.5 h-3 w-3 rotate-45 border border-cyan-400 bg-void-900 shadow-glow-cyan;
   }
 }
 
