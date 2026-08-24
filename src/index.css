@@ -7,6 +7,11 @@
     scroll-behavior: smooth;
   }
 
+  html, body {
+    @apply overflow-x-hidden;
+    max-width: 100vw;
+  }
+
   body {
     @apply bg-void-950 text-ink-100 font-ui antialiased;
     background-image: theme('backgroundImage.hud-glow'), theme('backgroundImage.grid-lines');
