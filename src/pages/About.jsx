@@ -10,60 +10,61 @@ export default function About() {
         path="/a-propos"
       />
 
+      {/* ===== INTRO ===== */}
+      <section className="relative overflow-hidden px-6 pb-16 pt-24">
+        <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full bg-hud-glow" />
+        <div className="mx-auto max-w-3xl">
+          <p className="hud-tag mb-4">Dossier 01 — Profil</p>
+          <h1 className="font-display text-3xl font-black uppercase text-ink-100 text-glow-cyan sm:text-4xl">
+            Mon parcours
+          </h1>
+          <p className="mt-6 max-w-2xl font-ui text-lg leading-relaxed text-ink-200">
+            {profile.bioLong}
+          </p>
+        </div>
+      </section>
+
+      {/* ===== FACTS ===== */}
+      <section className="border-y border-cyan-400/10 bg-void-900/40 px-6 py-10">
+        <div className="mx-auto grid max-w-3xl gap-4 sm:grid-cols-2">
+          <div className="stat-tile">
+            <p className="stat-label">Localisation</p>
+            <p className="stat-value">{profile.location}</p>
+          </div>
+          <div className="stat-tile">
+            <p className="stat-label">Centres d'intérêt</p>
+            <p className="stat-value">{profile.hobbies}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== FORMATIONS ===== */}
       <section className="mx-auto max-w-3xl px-6 py-20">
-        <p className="rune-divider mb-4 font-display text-xs uppercase tracking-[0.3em] text-gold-500">
-          À propos
-        </p>
-        <h1 className="font-display text-3xl font-semibold text-parchment-100 sm:text-4xl">
-          Mon parcours
-        </h1>
-        <p className="mt-6 text-lg leading-relaxed text-parchment-200/85">
-          {profile.bioLong}
-        </p>
-
-        <div className="mt-8 grid gap-3 sm:grid-cols-2">
-          <div className="seal-card p-4">
-            <p className="text-xs uppercase tracking-wide text-gold-500">Localisation</p>
-            <p className="mt-1 text-parchment-200">{profile.location}</p>
-          </div>
-          <div className="seal-card p-4">
-            <p className="text-xs uppercase tracking-wide text-gold-500">Centres d'intérêt</p>
-            <p className="mt-1 text-parchment-200">{profile.hobbies}</p>
-          </div>
+        <p className="hud-tag mb-3">Dossier 02 — Cursus</p>
+        <div className="hud-divider mb-12">
+          <h2 className="font-display text-2xl uppercase text-ink-100">Formations</h2>
         </div>
 
-        <div className="mt-16">
-          <h2 className="rune-divider mb-8 font-display text-2xl text-parchment-100">
-            Formations
-          </h2>
-          <ol className="space-y-6 border-l border-gold-500/25 pl-6">
-            {formations.map((formation) => (
-              <li key={formation.degree} className="relative">
-                <span className="absolute -left-[29px] top-1 h-2.5 w-2.5 rounded-full bg-gold-500" />
-                <p className="font-display text-lg text-parchment-100">{formation.degree}</p>
-                {formation.spec && (
-                  <p className="text-sm text-parchment-200/70">{formation.spec}</p>
-                )}
-                <p className="mt-1 text-sm text-gold-400">
-                  {formation.period} · {formation.school}
-                </p>
-              </li>
-            ))}
-          </ol>
-        </div>
+        <ol className="space-y-10 border-l border-cyan-400/20 pl-8">
+          {formations.map((formation) => (
+            <li key={formation.degree} className="relative">
+              <span className="timeline-node" />
+              <p className="font-display text-lg uppercase text-cyan-300">{formation.degree}</p>
+              {formation.spec && (
+                <p className="mt-1 text-sm text-ink-300">{formation.spec}</p>
+              )}
+              <p className="mt-2 font-mono text-xs uppercase tracking-wide text-magenta-300">
+                {formation.period} · {formation.school}
+              </p>
+            </li>
+          ))}
+        </ol>
 
         <div className="mt-16 flex flex-wrap gap-4">
-          <a
-            href={profile.cvUrl}
-            download
-            className="rounded border border-gold-500/50 bg-gold-500/10 px-6 py-3 font-display text-sm uppercase tracking-wide text-gold-300 transition-colors hover:bg-gold-500/20"
-          >
+          <a href={profile.cvUrl} download className="hud-btn-primary">
             Télécharger mon CV
           </a>
-          <a
-            href={`mailto:${profile.email}`}
-            className="rounded border border-parchment-200/20 px-6 py-3 font-display text-sm uppercase tracking-wide text-parchment-200 transition-colors hover:border-gold-500/40 hover:text-gold-300"
-          >
+          <a href={`mailto:${profile.email}`} className="hud-btn-ghost">
             Me contacter
           </a>
         </div>

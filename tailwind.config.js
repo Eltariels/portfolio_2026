@@ -4,38 +4,56 @@ export default {
   theme: {
     extend: {
       colors: {
-        forest: {
-          950: '#0d1712',
-          900: '#12201a',
-          800: '#1b2e22',
-          700: '#24402f',
-          600: '#345940',
-          500: '#4a7355',
+        void: {
+          950: '#03050a',
+          900: '#070b14',
+          800: '#0b111f',
+          700: '#111a2e',
+          600: '#182440',
+          500: '#213258',
         },
-        leather: {
-          900: '#2b1f16',
-          800: '#3d2c1e',
-          700: '#4f3b28',
-          600: '#6b4f3a',
-          500: '#8a6b4c',
+        cyan: {
+          200: '#a8f5ff',
+          300: '#7fe9ff',
+          400: '#3fd4ff',
+          500: '#12b8f0',
+          600: '#0a8fc2',
         },
-        gold: {
-          400: '#e3c565',
-          300: '#eddca0',
-          500: '#c9a227',
-          600: '#a8841d',
+        magenta: {
+          300: '#ff9df2',
+          400: '#ff5ce8',
+          500: '#e321d6',
+          600: '#b014ab',
         },
-        parchment: {
-          100: '#f5efdd',
-          200: '#ece2c6',
+        amber: {
+          300: '#ffd873',
+          400: '#ffc233',
+          500: '#f0a90a',
+        },
+        ink: {
+          100: '#e8f1fb',
+          200: '#c3d3e8',
+          300: '#8fa3c2',
+          400: '#5c7093',
         },
       },
       fontFamily: {
-        display: ['Cinzel', 'Georgia', 'serif'],
-        body: ['"Inter"', 'system-ui', 'sans-serif'],
+        display: ['Orbitron', 'system-ui', 'sans-serif'],
+        ui: ['Rajdhani', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
       backgroundImage: {
-        'rune-glow': 'radial-gradient(circle at 50% 0%, rgba(201,162,39,0.15), transparent 60%)',
+        'grid-lines':
+          'linear-gradient(rgba(63, 212, 255, 0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(63, 212, 255, 0.07) 1px, transparent 1px)',
+        'hud-glow':
+          'radial-gradient(ellipse 80% 50% at 50% -10%, rgba(63, 212, 255, 0.18), transparent 60%), radial-gradient(ellipse 60% 40% at 90% 10%, rgba(227, 33, 214, 0.12), transparent 60%)',
+      },
+      backgroundSize: {
+        grid: '42px 42px',
+      },
+      boxShadow: {
+        'glow-cyan': '0 0 20px rgba(63, 212, 255, 0.35), 0 0 2px rgba(63, 212, 255, 0.6)',
+        'glow-magenta': '0 0 20px rgba(227, 33, 214, 0.3), 0 0 2px rgba(227, 33, 214, 0.6)',
       },
     },
   },

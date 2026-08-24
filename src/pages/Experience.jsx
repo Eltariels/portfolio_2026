@@ -20,43 +20,49 @@ export default function Experience() {
         }}
       />
 
-      <section className="mx-auto max-w-3xl px-6 py-20">
-        <p className="rune-divider mb-4 font-display text-xs uppercase tracking-[0.3em] text-gold-500">
-          Expérience
-        </p>
-        <h1 className="font-display text-3xl font-semibold text-parchment-100 sm:text-4xl">
-          Trois alternances, un fil conducteur
-        </h1>
+      {/* ===== INTRO ===== */}
+      <section className="relative overflow-hidden px-6 pb-16 pt-24">
+        <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full bg-hud-glow" />
+        <div className="mx-auto max-w-3xl">
+          <p className="hud-tag mb-4">Dossier 03 — Journal de bord</p>
+          <h1 className="font-display text-3xl font-black uppercase text-ink-100 text-glow-cyan sm:text-4xl">
+            Expérience
+          </h1>
+          <p className="mt-6 max-w-2xl font-ui text-lg text-ink-300">
+            Trois alternances, un fil conducteur.
+          </p>
+        </div>
+      </section>
 
-        <ol className="mt-12 space-y-10 border-l border-gold-500/25 pl-6">
+      {/* ===== TIMELINE ===== */}
+      <section className="mx-auto max-w-3xl px-6 pb-16">
+        <ol className="space-y-12 border-l border-cyan-400/20 pl-8">
           {experiences.map((exp) => (
             <li key={`${exp.company}-${exp.period}`} className="relative">
-              <span className="absolute -left-[29px] top-1 h-2.5 w-2.5 rounded-full bg-gold-500" />
-              <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <h2 className="font-display text-xl text-parchment-100">{exp.title}</h2>
-                <span className="text-sm text-gold-400">{exp.period}</span>
+              <span className="timeline-node" />
+              <div className="hud-panel hud-corners p-6">
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <h2 className="font-display text-lg uppercase text-cyan-300">{exp.title}</h2>
+                  <span className="font-mono text-xs uppercase tracking-wide text-magenta-300">{exp.period}</span>
+                </div>
+                <p className="mt-1 font-mono text-xs uppercase tracking-wide text-ink-400">
+                  <span className="text-cyan-400">{exp.company}</span> — {exp.place}
+                </p>
+                <ul className="mt-5 space-y-2.5">
+                  {exp.items.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm text-ink-200">
+                      <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rotate-45 bg-cyan-400/80" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <p className="mt-1 text-sm text-parchment-200/70">
-                <span className="font-semibold text-gold-500">{exp.company}</span> — {exp.place}
-              </p>
-              <ul className="mt-4 space-y-2">
-                {exp.items.map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-parchment-200/85">
-                    <span className="mt-1 text-gold-500">•</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
             </li>
           ))}
         </ol>
 
         <div className="mt-16">
-          <a
-            href={profile.cvUrl}
-            download
-            className="rounded border border-gold-500/50 bg-gold-500/10 px-6 py-3 font-display text-sm uppercase tracking-wide text-gold-300 transition-colors hover:bg-gold-500/20"
-          >
+          <a href={profile.cvUrl} download className="hud-btn-primary">
             Télécharger mon CV
           </a>
         </div>

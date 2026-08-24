@@ -8,37 +8,102 @@
   }
 
   body {
-    @apply bg-forest-900 text-parchment-100 font-body antialiased;
-    background-image:
-      radial-gradient(circle at 15% 0%, rgba(201, 162, 39, 0.08), transparent 45%),
-      radial-gradient(circle at 85% 20%, rgba(74, 115, 85, 0.12), transparent 50%);
+    @apply bg-void-950 text-ink-100 font-ui antialiased;
+    background-image: theme('backgroundImage.hud-glow'), theme('backgroundImage.grid-lines');
+    background-size: auto, 42px 42px;
+    background-position: 0 0, center;
     background-attachment: fixed;
   }
 
   h1, h2, h3, h4 {
-    @apply font-display text-parchment-100;
+    @apply font-display text-ink-100 tracking-wide;
   }
 
   ::selection {
-    @apply bg-gold-500/40 text-parchment-100;
+    @apply bg-cyan-500/40 text-white;
+  }
+
+  a {
+    -webkit-tap-highlight-color: transparent;
   }
 }
 
 @layer components {
-  .rune-divider {
-    @apply flex items-center gap-3 text-gold-500;
+  /* section eyebrow: "// 01 — SECTION" style tag */
+  .hud-tag {
+    @apply inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-cyan-400;
   }
-  .rune-divider::before,
-  .rune-divider::after {
+  .hud-tag::before {
+    content: '//';
+    @apply text-magenta-400;
+  }
+
+  .hud-divider {
+    @apply flex items-center gap-3;
+  }
+  .hud-divider::after {
     content: '';
-    @apply h-px flex-1 bg-gold-500/30;
+    @apply h-px flex-1 bg-gradient-to-r from-cyan-500/60 to-transparent;
   }
 
-  .seal-card {
-    @apply relative rounded-lg border border-gold-500/25 bg-forest-800/70 shadow-lg shadow-black/30 backdrop-blur-sm;
+  /* HUD panel: clipped corners + glowing border, like a Star Citizen console */
+  .hud-panel {
+    @apply relative border border-cyan-400/25 bg-void-800/70 backdrop-blur-sm;
+    clip-path: polygon(0 14px, 14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%);
+  }
+  .hud-panel::before {
+    content: '';
+    @apply pointer-events-none absolute inset-0 border border-white/[0.03];
   }
 
-  .tag-pill {
-    @apply rounded border border-gold-500/30 bg-leather-800/60 px-3 py-1.5 text-sm text-parchment-200;
+  /* small corner bracket accents, absolutely positioned inside a `relative` parent */
+  .hud-corners::before,
+  .hud-corners::after {
+    content: '';
+    @apply pointer-events-none absolute h-3 w-3 border-cyan-400/70;
+  }
+  .hud-corners::before {
+    @apply left-0 top-0 border-l-2 border-t-2;
+  }
+  .hud-corners::after {
+    @apply bottom-0 right-0 border-b-2 border-r-2;
+  }
+
+  .hud-btn {
+    @apply relative inline-flex items-center justify-center gap-2 border px-6 py-3 font-ui text-sm font-semibold uppercase tracking-[0.15em] transition-all duration-200;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  }
+  .hud-btn-primary {
+    @apply hud-btn border-cyan-400/70 bg-cyan-500/10 text-cyan-200 hover:bg-cyan-500/20 hover:shadow-glow-cyan;
+  }
+  .hud-btn-ghost {
+    @apply hud-btn border-ink-300/25 bg-white/[0.02] text-ink-200 hover:border-magenta-400/50 hover:text-magenta-300 hover:shadow-glow-magenta;
+  }
+
+  .chip {
+    @apply rounded-sm border border-cyan-400/25 bg-void-700/60 px-3 py-1.5 font-mono text-xs uppercase tracking-wide text-ink-200;
+  }
+
+  .stat-tile {
+    @apply hud-panel px-5 py-4;
+  }
+  .stat-tile .stat-label {
+    @apply font-mono text-[0.65rem] uppercase tracking-[0.2em] text-cyan-400/80;
+  }
+  .stat-tile .stat-value {
+    @apply mt-1 font-display text-sm text-ink-100;
+  }
+
+  .timeline-node {
+    @apply absolute -left-[7px] top-1.5 h-3 w-3 rotate-45 border border-cyan-400 bg-void-900 shadow-glow-cyan;
+  }
+}
+
+@layer utilities {
+  .text-glow-cyan {
+    text-shadow: 0 0 18px rgba(63, 212, 255, 0.55);
+  }
+  .text-glow-magenta {
+    text-shadow: 0 0 18px rgba(227, 33, 214, 0.5);
   }
 }
