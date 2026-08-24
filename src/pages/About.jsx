@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Seo from '../components/Seo'
 import { profile, formations } from '../data/profile'
 
@@ -64,9 +65,9 @@ export default function About() {
           <a href={profile.cvUrl} download className="hud-btn-primary">
             Télécharger mon CV
           </a>
-          <a href={`mailto:${profile.email}`} className="hud-btn-ghost">
+          <Link to="/contact" className="hud-btn-ghost">
             Me contacter
-          </a>
+          </Link>
         </div>
       </section>
     </>

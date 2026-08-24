@@ -28,6 +28,12 @@ const teasers = [
     title: 'Expérience',
     text: 'Trois alternances, des sites vitrines aux plateformes sur-mesure, en agence comme en télétravail.',
   },
+  {
+    code: '04',
+    to: '/contact',
+    title: 'Contact',
+    text: 'Email, téléphone, LinkedIn — tous les canaux pour me joindre rapidement.',
+  },
 ]
 
 export default function Home() {
@@ -96,7 +102,7 @@ export default function Home() {
           <h2 className="font-display text-2xl uppercase text-ink-100">Explorer le dossier</h2>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {teasers.map((teaser) => (
             <Link
               key={teaser.to}

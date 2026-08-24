@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { profile } from '../data/profile'
 
-export default function ContactLink({ className = '' }) {
+export default function ContactLink({ className = '', children = 'Contact' }) {
   const [copied, setCopied] = useState(false)
 
   const handleClick = async () => {
@@ -16,7 +16,7 @@ export default function ContactLink({ className = '' }) {
 
   return (
     <a href={`mailto:${profile.email}`} onClick={handleClick} className={className}>
-      {copied ? 'Adresse copiée !' : 'Contact'}
+      {copied ? 'Adresse copiée !' : children}
     </a>
   )
 }

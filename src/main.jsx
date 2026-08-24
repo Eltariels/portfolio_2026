@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Skills from './pages/Skills'
 import Experience from './pages/Experience'
+import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
 import './index.css'
 
@@ -18,6 +19,7 @@ export const createRoot = ViteReactSSG(
           { path: 'a-propos', element: <About /> },
           { path: 'competences', element: <Skills /> },
           { path: 'experience', element: <Experience /> },
+          { path: 'contact', element: <Contact /> },
           { path: '*', element: <NotFound /> },
         ],
       },

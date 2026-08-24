@@ -1,5 +1,5 @@
+import { Link } from 'react-router-dom'
 import { profile } from '../data/profile'
-import ContactLink from './ContactLink'
 
 export default function Footer() {
   return (
@@ -14,7 +14,9 @@ export default function Footer() {
           <a href={profile.linkedin} target="_blank" rel="noreferrer" className="text-ink-300 transition-colors hover:text-cyan-300">
             LinkedIn
           </a>
-          <ContactLink className="text-ink-300 transition-colors hover:text-cyan-300" />
+          <Link to="/contact" className="text-ink-300 transition-colors hover:text-cyan-300">
+            Contact
+          </Link>
         </div>
       </div>
     </footer>
