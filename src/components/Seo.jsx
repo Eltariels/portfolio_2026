@@ -1,6 +1,6 @@
 import { Head as Helmet } from 'vite-react-ssg'
 
-const SITE_URL = 'https://theoborella.netlify.app'
+const SITE_URL = 'https://portfolio-borella-theo.vercel.app'
 const DEFAULT_IMAGE = `${SITE_URL}/og-image.jpg`
 
 export default function Seo({ title, description, path = '/', image = DEFAULT_IMAGE, jsonLd }) {

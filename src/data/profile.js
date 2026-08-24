@@ -9,7 +9,7 @@ export const profile = {
   email: 'theo.borella.hc@gmail.com',
   phone: '06 74 60 36 50',
   linkedin: 'https://www.linkedin.com/in/theo-borella-developer-web/',
-  site: 'https://theoborella.netlify.app/',
+  site: 'https://portfolio-borella-theo.vercel.app/',
   cvUrl: '/cv/CV_Theo_Borella.pdf',
   hobbies:
     "Savoyard qui aime monter des PC de A à Z, tryhard du code, skier et speedrunner.",
