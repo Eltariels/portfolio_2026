@@ -14,9 +14,7 @@
 
   body {
     @apply bg-void-950 text-ink-100 font-ui antialiased;
-    background-image: theme('backgroundImage.hud-glow'), theme('backgroundImage.grid-lines');
-    background-size: auto, 42px 42px;
-    background-position: 0 0, center;
+    background-image: theme('backgroundImage.hud-glow');
     background-attachment: fixed;
   }
 

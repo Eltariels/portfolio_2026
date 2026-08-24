@@ -43,13 +43,8 @@ export default {
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
       backgroundImage: {
-        'grid-lines':
-          'linear-gradient(rgba(63, 212, 255, 0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(63, 212, 255, 0.07) 1px, transparent 1px)',
         'hud-glow':
           'radial-gradient(ellipse 80% 50% at 50% -10%, rgba(63, 212, 255, 0.18), transparent 60%), radial-gradient(ellipse 60% 40% at 90% 10%, rgba(227, 33, 214, 0.12), transparent 60%)',
-      },
-      backgroundSize: {
-        grid: '42px 42px',
       },
       boxShadow: {
         'glow-cyan': '0 0 20px rgba(63, 212, 255, 0.35), 0 0 2px rgba(63, 212, 255, 0.6)',
