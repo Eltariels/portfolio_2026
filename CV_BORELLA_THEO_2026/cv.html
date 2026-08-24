@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>CV - Théo Borella</title>
+<style>
+  :root{
+    --bg: #0e211d;
+    --panel: #133029;
+    --panel-2: #163a31;
+    --green: #8dc63f;
+    --green-dim: #6ea832;
+    --text: #f3f7f1;
+    --text-muted: #aec2b6;
+    --border: rgba(141,198,63,0.35);
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+
+  html, body{
+    background: #3a3a3a;
+  }
+
+  body{
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    color: var(--text);
+    display:flex;
+    justify-content:center;
+  }
+
+  .page{
+    width: 210mm;
+    height: 297mm;
+    background: var(--bg);
+    padding: 16mm 17mm;
+    display:flex;
+    flex-direction:column;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  @page{ size: A4; margin: 0; }
+
+  @media print{
+    html, body{ background: var(--bg); }
+    .page{ box-shadow:none; }
+  }
+
+  @media screen{
+    .page{ margin: 10mm 0 20mm 0; box-shadow: 0 0 25px rgba(0,0,0,0.5); }
+  }
+
+  /* ---------- header ---------- */
+  header.hero{
+    display:grid;
+    grid-template-columns: 104px 1fr 260px;
+    gap: 22px;
+    align-items:center;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 22px;
+    flex-shrink:0;
+  }
+
+  .photo img{
+    width: 104px; height: 104px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--green);
+    display:block;
+  }
+
+  .identity h1{
+    font-size: 31px;
+    letter-spacing: 0.5px;
+    color: var(--text);
+  }
+  .identity h2{
+    font-size: 15.5px;
+    font-weight: 600;
+    color: var(--green);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  .identity p.bio{
+    font-size: 12px;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-top: 8px;
+    max-width: 560px;
+    line-height: 1.45;
+  }
+
+  .contact{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap: 5px;
+  }
+  .contact ul{ list-style:none; text-align:right; }
+  .contact li{
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .contact li b{ color: var(--text); }
+  .contact a{ color: var(--text-muted); text-decoration:none; }
+
+  /* ---------- section titles ---------- */
+  h3.section-title{
+    font-size: 15.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.9px;
+    color: var(--green);
+    display:flex;
+    align-items:center;
+    gap: 9px;
+    margin-bottom: 13px;
+  }
+  h3.section-title::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background: var(--border);
+  }
+
+  /* ---------- layout grid ---------- */
+  main.grid{
+    display:grid;
+    grid-template-columns: 1.55fr 1fr;
+    gap: 34px;
+    flex: 1;
+    min-height:0;
+  }
+
+  .col-main, .col-side{
+    display:flex;
+    flex-direction:column;
+  }
+
+  .bottom-block{ margin-top:auto; }
+
+  /* ---------- experience ---------- */
+  .job{ margin-bottom: 20px; }
+  .job-head{
+    display:flex;
+    align-items:baseline;
+    gap:7px;
+  }
+  .job-head .tri{ color: var(--green); font-size: 11px; }
+  .job-title{ font-size: 14.5px; font-weight:700; color: var(--text); }
+  .job-meta{
+    font-size: 11.5px;
+    color: var(--text-muted);
+    margin: 3px 0 7px 18px;
+  }
+  .job-meta .co{ color: var(--green); font-weight:600; }
+
+  ul.job-list{
+    list-style:none;
+    margin-left: 18px;
+  }
+  ul.job-list li{
+    font-size: 11.8px;
+    line-height: 1.6;
+    color: var(--text-muted);
+    position:relative;
+    padding-left: 13px;
+    margin-bottom: 3px;
+  }
+  ul.job-list li::before{
+    content:"•";
+    color: var(--green);
+    position:absolute;
+    left:0;
+  }
+
+  /* ---------- education ---------- */
+  .edu{ display:flex; flex-direction:column; gap:16px; }
+  .edu-item{ display:flex; align-items:baseline; gap:7px; }
+  .edu-item .tri{ color: var(--green); font-size:11px; }
+  .edu-body .deg{ font-size: 13.5px; font-weight:700; color:var(--text); }
+  .edu-body .spec{ font-size: 11px; color: var(--text-muted); margin-top:1px; }
+  .edu-body .meta{ font-size: 11px; color: var(--text-muted); margin-top:3px; }
+  .edu-body .meta b{ color: var(--text); }
+
+  /* ---------- sidebar ---------- */
+  .skill-group{ margin-bottom: 18px; }
+  .skill-group .g-label{
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--text-muted);
+    margin-bottom: 7px;
+  }
+  .tags{ display:flex; flex-wrap:wrap; gap: 7px; }
+  .tag{
+    font-size: 11.5px;
+    color: var(--text);
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 5px 11px;
+    white-space:nowrap;
+  }
+
+  .tools-list{ list-style:none; }
+  .tools-list li{
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.85;
+    position:relative;
+    padding-left: 14px;
+  }
+  .tools-list li::before{
+    content:"▸";
+    color: var(--green);
+    position:absolute;
+    left:0;
+  }
+
+  .hobbies-text{
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  .portfolio-box{
+    display:flex;
+    align-items:center;
+    gap: 14px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+  .portfolio-box img{
+    width: 66px; height: 66px;
+    border-radius: 4px;
+    background:#fff;
+    padding: 3px;
+  }
+  .portfolio-box .p-text{ font-size: 10.8px; color: var(--text-muted); line-height:1.5; }
+  .portfolio-box .p-text b{ color: var(--green); display:block; font-size:13px; margin-bottom:2px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="hero">
+    <div class="photo"><img src="assets/photo-theo-crop.jpg" alt="Théo Borella"></div>
+    <div class="identity">
+      <h1>Théo BORELLA</h1>
+      <h2>Développeur Web Full Stack &amp; No-Code — Alternance</h2>
+      <p class="bio">Tombé dans la marmite du code dès la 5ème, je cherche une alternance en développement web full stack et/ou no-code.</p>
+    </div>
+    <div class="contact">
+      <ul>
+        <li><b>Permis B</b></li>
+        <li>Chambéry, Lyon, Grenoble, Annecy</li>
+        <li>theo.borella.hc@gmail.com</li>
+        <li>06 74 60 36 50</li>
+        <li><a href="https://www.linkedin.com/in/theo-borella-developer-web/">linkedin.com/in/theo-borella-developer-web</a></li>
+        <li><a href="https://theoborella.netlify.app/">theoborella.netlify.app</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="grid">
+    <!-- ================= COLONNE PRINCIPALE ================= -->
+    <section class="col-main">
+      <h3 class="section-title">Expériences</h3>
+
+      <div class="job">
+        <div class="job-head"><span class="tri">▶</span><span class="job-title">Alternance Développeur Web No-Code</span></div>
+        <div class="job-meta"><span class="co">Digital Jouss</span> — Bordeaux (télétravail) · 2025/2026</div>
+        <ul class="job-list">
+          <li>Développement et intégration de sites divers en no-code sous WordPress (Elementor, Crocoblock)</li>
+          <li>Site e-commerce sous WooCommerce</li>
+          <li>Site vitrine</li>
+          <li>Site d'association</li>
+          <li>Plateforme et application web en no-code</li>
+          <li>Intégration pixel perfect de maquettes Figma</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head"><span class="tri">▶</span><span class="job-title">Alternance Développeur Web Full-Stack</span></div>
+        <div class="job-meta"><span class="co">Liongency</span> — Ambérieu-en-Bugey · 2024/2025</div>
+        <ul class="job-list">
+          <li>Développement intégral de sites web sous WordPress pour des particuliers / entreprises</li>
+          <li>Sites réalisés : Aux Creux des Montagnes, Brows&amp;Cie</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head"><span class="tri">▶</span><span class="job-title">Alternance Développeur Web Full-Stack</span></div>
+        <div class="job-meta"><span class="co">La Bonne Agence</span> — Grenoble · 2023/2024</div>
+        <ul class="job-list">
+          <li>Création d'un site web sous WordPress en optimisant la personnalisation pour la cliente</li>
+          <li>Conception et développement de deux projets full stack sous WordPress en tant que développeur principal</li>
+          <li>Développement d'un site web complet sous Drupal, back-end et front-end</li>
+          <li>Intégration de maquettes et développement front-end pour un autre site sous Drupal</li>
+        </ul>
+      </div>
+
+      <div class="bottom-block">
+        <h3 class="section-title">Formations</h3>
+        <div class="edu">
+          <div class="edu-item">
+            <span class="tri">▶</span>
+            <div class="edu-body">
+              <div class="deg">BAC+5 Mastère — Développement full stack</div>
+              <div class="meta"><b>2024 - 2027</b> · WEBTECH Lyon (Next Campus)</div>
+            </div>
+          </div>
+          <div class="edu-item">
+            <span class="tri">▶</span>
+            <div class="edu-body">
+              <div class="deg">BAC+3 BUT MMI — spécialité Développement Web</div>
+              <div class="spec">Métiers du Multimédia et de l'Internet</div>
+              <div class="meta"><b>2021 - 2024</b> · IUT de Chambéry</div>
+            </div>
+          </div>
+          <div class="edu-item">
+            <span class="tri">▶</span>
+            <div class="edu-body">
+              <div class="deg">BAC STI2D — option SIN</div>
+              <div class="spec">Systèmes d'Information et Numérique</div>
+              <div class="meta"><b>Juin 2021</b> · LPO Louis Lachenal, Argonay</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= COLONNE LATERALE ================= -->
+    <aside class="col-side">
+      <h3 class="section-title">Compétences</h3>
+
+      <div class="skill-group">
+        <div class="g-label">Développement Web</div>
+        <div class="tags">
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+          <span class="tag">PHP</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">MongoDB + Express</span>
+          <span class="tag">React jsx</span>
+          <span class="tag">Vite</span>
+          <span class="tag">Tailwind</span>
+          <span class="tag">Github / Gitlab</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="g-label">No-Code &amp; CMS</div>
+        <div class="tags">
+          <span class="tag">WordPress</span>
+          <span class="tag">Elementor</span>
+          <span class="tag">Crocoblock</span>
+          <span class="tag">WooCommerce</span>
+          <span class="tag">Drupal</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="g-label">Design &amp; Intégration</div>
+        <div class="tags">
+          <span class="tag">Figma</span>
+          <span class="tag">Adobe XD</span>
+          <span class="tag">Photoshop</span>
+          <span class="tag">Pixel Perfect</span>
+        </div>
+      </div>
+
+      <h3 class="section-title" style="margin-top:6px;">Outils</h3>
+      <ul class="tools-list">
+        <li>VS Code · Suite JetBrain (PHPStorm, WEBStorm, Fleet, ...)</li>
+        <li>Suite Adobe (Ps, Ai, Id, Xd, Figma)</li>
+        <li>Unity · Unreal Engine · Blender</li>
+      </ul>
+
+      <h3 class="section-title" style="margin-top:20px;">Hobbies</h3>
+      <p class="hobbies-text">Savoyard qui aime monter des PC de A à Z, tryhard du code, skier et speedrunner.</p>
+
+      <div class="portfolio-box bottom-block">
+        <img src="assets/qrcode.png" alt="QR portfolio">
+        <div class="p-text"><b>Portfolio</b>theoborella.netlify.app</div>
+      </div>
+    </aside>
+  </main>
+
+</div>
+</body>
+</html>
