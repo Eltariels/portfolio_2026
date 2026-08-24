@@ -98,7 +98,7 @@ export const formations = [
 export const skillGroups = [
   {
     label: 'Développement Web',
-    skills: ['HTML5', 'CSS3', 'PHP', 'MySQL', 'JavaScript', 'MongoDB + Express', 'React JSX', 'Vite', 'Tailwind', 'GitHub / GitLab'],
+    skills: ['HTML5', 'CSS3', 'PHP', 'MySQL', 'phpMyAdmin', 'JavaScript', 'Node.js', 'MongoDB + Express', 'React JSX', 'Vite', 'Tailwind', 'GitHub / GitLab', 'Docker', 'CMD', 'Ubuntu', 'SEO'],
   },
   {
     label: 'No-Code & CMS',
