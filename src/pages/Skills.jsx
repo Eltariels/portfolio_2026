@@ -1,6 +1,20 @@
 import Seo from '../components/Seo'
 import { skillGroups, tools } from '../data/profile'
 
+function LevelBars({ level, max = 4 }) {
+  return (
+    <span className="flex items-end gap-[2px]" aria-hidden="true">
+      {Array.from({ length: max }, (_, i) => (
+        <span
+          key={i}
+          className={`w-[3px] rounded-[1px] ${i < level ? 'bg-cyan-400 shadow-glow-cyan' : 'bg-ink-400/25'}`}
+          style={{ height: `${5 + i * 2.5}px` }}
+        />
+      ))}
+    </span>
+  )
+}
+
 export default function Skills() {
   return (
     <>
@@ -21,6 +35,13 @@ export default function Skills() {
           <p className="mt-6 max-w-2xl font-ui text-lg text-ink-300">
             Code et no-code, deux facettes d'un même métier.
           </p>
+          <div className="mt-5 flex items-center gap-2 font-mono text-[0.65rem] uppercase tracking-wide text-ink-400">
+            <LevelBars level={4} />
+            <span>Usage quotidien</span>
+            <span className="mx-1 text-ink-400/50">·</span>
+            <LevelBars level={1} />
+            <span>Premières bases</span>
+          </div>
         </div>
       </section>
 
@@ -33,8 +54,13 @@ export default function Skills() {
               <h2 className="mt-1 font-display text-lg uppercase text-cyan-300">{group.label}</h2>
               <div className="mt-4 flex flex-wrap gap-2">
                 {group.skills.map((skill) => (
-                  <span key={skill} className="chip">
-                    {skill}
+                  <span
+                    key={skill.name}
+                    className="chip inline-flex items-center gap-2"
+                    aria-label={`${skill.name} — niveau ${skill.level} sur 4`}
+                  >
+                    {skill.name}
+                    <LevelBars level={skill.level} />
                   </span>
                 ))}
               </div>

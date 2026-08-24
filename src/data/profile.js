@@ -33,12 +33,12 @@ export const experiences = [
       'Intégration pixel perfect de maquettes Figma',
     ],
     sites: [
-      { label: 'fromageriejunges.com', url: 'https://fromageriejunges.com' },
-      { label: 'impression-edition-gironde.com', url: 'https://impression-edition-gironde.com' },
-      { label: 'distrisafe.fr', url: 'https://www.distrisafe.fr' },
-      { label: 'dgb-courtage.com', url: 'https://dgb-courtage.com' },
-      { label: 'lyceesaintefamille.com', url: 'https://lyceesaintefamille.com' },
-      { label: 'transicio.com', url: 'https://www.transicio.com' },
+      { label: 'fromageriejunges.com', url: 'https://fromageriejunges.com', image: '/images/projects/fromageriejunges.webp' },
+      { label: 'impression-edition-gironde.com', url: 'https://impression-edition-gironde.com', image: '/images/projects/impression-edition-gironde.webp' },
+      { label: 'distrisafe.fr', url: 'https://www.distrisafe.fr', image: '/images/projects/distrisafe.webp' },
+      { label: 'dgb-courtage.com', url: 'https://dgb-courtage.com', image: '/images/projects/dgb-courtage.webp' },
+      { label: 'lyceesaintefamille.com', url: 'https://lyceesaintefamille.com', image: '/images/projects/lyceesaintefamille.webp' },
+      { label: 'transicio.com', url: 'https://www.transicio.com', image: '/images/projects/transicio.webp' },
     ],
   },
   {
@@ -50,9 +50,9 @@ export const experiences = [
       'Développement intégral de sites web sous WordPress pour des particuliers / entreprises',
     ],
     sites: [
-      { label: 'au-creux-des-montagnes.com', url: 'https://au-creux-des-montagnes.com' },
-      { label: 'd-et-c-plomberie.fr', url: 'https://d-et-c-plomberie.fr/plombier-amberieu-en-bugey/' },
-      { label: 'browsandcie.fr', url: 'https://browsandcie.fr' },
+      { label: 'au-creux-des-montagnes.com', url: 'https://au-creux-des-montagnes.com', image: '/images/projects/au-creux-des-montagnes.webp' },
+      { label: 'd-et-c-plomberie.fr', url: 'https://d-et-c-plomberie.fr/plombier-amberieu-en-bugey/', image: '/images/projects/d-et-c-plomberie.webp' },
+      { label: 'browsandcie.fr', url: 'https://browsandcie.fr', image: '/images/projects/browsandcie.webp' },
     ],
   },
   {
@@ -67,10 +67,10 @@ export const experiences = [
       'Intégration de maquettes et développement front-end pour un autre site sous Drupal',
     ],
     sites: [
-      { label: 'araymond-mobility.com', url: 'https://www.araymond-mobility.com/en' },
-      { label: 'exosens.com', url: 'https://www.exosens.com/fr' },
-      { label: 'opinel.com', url: 'https://www.opinel.com/fr-fr/' },
-      { label: 'fromont-briens.com', url: 'https://fromont-briens.com' },
+      { label: 'araymond-mobility.com', url: 'https://www.araymond-mobility.com/en', image: '/images/projects/araymond-mobility.webp' },
+      { label: 'exosens.com', url: 'https://www.exosens.com/fr', image: '/images/projects/exosens.webp' },
+      { label: 'opinel.com', url: 'https://www.opinel.com/fr-fr/', image: '/images/projects/opinel.webp' },
+      { label: 'fromont-briens.com', url: 'https://fromont-briens.com', image: '/images/projects/fromont-briens.webp' },
     ],
   },
 ]
@@ -95,18 +95,47 @@ export const formations = [
   },
 ]
 
+// level: 1 = notions, 2 = operationnel, 3 = confirme, 4 = maitrise (quotidien)
 export const skillGroups = [
   {
     label: 'Développement Web',
-    skills: ['HTML5', 'CSS3', 'PHP', 'MySQL', 'phpMyAdmin', 'JavaScript', 'Node.js', 'MongoDB + Express', 'React JSX', 'Vite', 'Tailwind', 'GitHub / GitLab', 'Docker', 'CMD', 'Ubuntu', 'SEO'],
+    skills: [
+      { name: 'HTML5', level: 4 },
+      { name: 'CSS3', level: 4 },
+      { name: 'PHP', level: 4 },
+      { name: 'MySQL', level: 4 },
+      { name: 'phpMyAdmin', level: 3 },
+      { name: 'JavaScript', level: 3 },
+      { name: 'Node.js', level: 2 },
+      { name: 'MongoDB + Express', level: 2 },
+      { name: 'React JSX', level: 3 },
+      { name: 'Vite', level: 3 },
+      { name: 'Tailwind', level: 3 },
+      { name: 'GitHub / GitLab', level: 3 },
+      { name: 'Docker', level: 1 },
+      { name: 'CMD', level: 2 },
+      { name: 'Ubuntu', level: 2 },
+      { name: 'SEO', level: 3 },
+    ],
   },
   {
     label: 'No-Code & CMS',
-    skills: ['WordPress', 'Elementor', 'Crocoblock', 'WooCommerce', 'Drupal'],
+    skills: [
+      { name: 'WordPress', level: 4 },
+      { name: 'Elementor', level: 4 },
+      { name: 'Crocoblock', level: 3 },
+      { name: 'WooCommerce', level: 3 },
+      { name: 'Drupal', level: 2 },
+    ],
   },
   {
     label: 'Design & Intégration',
-    skills: ['Figma', 'Adobe XD', 'Photoshop', 'Pixel Perfect'],
+    skills: [
+      { name: 'Figma', level: 3 },
+      { name: 'Adobe XD', level: 2 },
+      { name: 'Photoshop', level: 2 },
+      { name: 'Pixel Perfect', level: 3 },
+    ],
   },
 ]
 

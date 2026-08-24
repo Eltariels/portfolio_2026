@@ -63,17 +63,31 @@ export default function Experience() {
                     <p className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-cyan-400/80">
                       Sites réalisés
                     </p>
-                    <div className="mt-3 flex flex-wrap gap-2">
+                    <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-3">
                       {exp.sites.map((site) => (
                         <a
                           key={site.url}
                           href={site.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="chip inline-flex items-center gap-1.5 transition-colors hover:border-cyan-400/70 hover:text-cyan-300"
+                          className="group overflow-hidden border border-cyan-400/20 bg-void-900/60 transition-all duration-200 hover:-translate-y-1 hover:border-cyan-400/60 hover:shadow-glow-cyan"
                         >
-                          {site.label}
-                          <span aria-hidden="true" className="text-cyan-400">↗</span>
+                          <div className="aspect-[16/10] overflow-hidden bg-void-800">
+                            <img
+                              src={site.image}
+                              alt={`Aperçu du site ${site.label}`}
+                              loading="lazy"
+                              width={720}
+                              height={450}
+                              className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
+                            />
+                          </div>
+                          <div className="flex items-center justify-between gap-1.5 px-2.5 py-2">
+                            <span className="truncate font-mono text-[0.65rem] text-ink-200 group-hover:text-cyan-300">
+                              {site.label}
+                            </span>
+                            <span aria-hidden="true" className="flex-shrink-0 text-cyan-400">↗</span>
+                          </div>
                         </a>
                       ))}
                     </div>
