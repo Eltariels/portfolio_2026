@@ -1,5 +1,6 @@
 import Seo from '../components/Seo'
 import ContactLink from '../components/ContactLink'
+import CvButtons from '../components/CvButtons'
 import { profile } from '../data/profile'
 
 export default function Contact() {
@@ -86,9 +87,7 @@ export default function Contact() {
         </div>
 
         <div className="mt-12 flex flex-wrap gap-4">
-          <a href={profile.cvUrl} download className="hud-btn-primary">
-            Télécharger mon CV
-          </a>
+          <CvButtons primary />
         </div>
       </section>
     </>

@@ -13,6 +13,7 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/theo-borella-developer-web/',
   site: 'https://portfolio-borella-theo.vercel.app/',
   cvUrl: '/cv/CV_Theo_Borella.pdf',
+  cvPrintUrl: '/cv/CV_Theo_Borella_print.pdf',
   hobbies:
     "Savoyard qui aime monter des PC de A à Z, tryhard du code, skier et speedrunner.",
 }

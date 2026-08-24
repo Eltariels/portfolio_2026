@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import Seo from '../components/Seo'
+import CvButtons from '../components/CvButtons'
 import { profile } from '../data/profile'
 
 const stats = [
@@ -77,9 +78,7 @@ export default function Home() {
           <Link to="/a-propos" className="hud-btn-primary">
             Découvrir mon parcours
           </Link>
-          <a href={profile.cvUrl} download className="hud-btn-ghost">
-            Télécharger mon CV
-          </a>
+          <CvButtons />
         </div>
       </section>
 

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import Seo from '../components/Seo'
+import CvButtons from '../components/CvButtons'
 import { profile, formations } from '../data/profile'
 
 export default function About() {
@@ -62,9 +63,7 @@ export default function About() {
         </ol>
 
         <div className="mt-16 flex flex-wrap gap-4">
-          <a href={profile.cvUrl} download className="hud-btn-primary">
-            Télécharger mon CV
-          </a>
+          <CvButtons primary />
           <Link to="/contact" className="hud-btn-ghost">
             Me contacter
           </Link>

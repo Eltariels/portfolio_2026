@@ -1,4 +1,5 @@
 import Seo from '../components/Seo'
+import CvButtons from '../components/CvButtons'
 import { experiences, profile } from '../data/profile'
 
 export default function Experience() {
@@ -83,10 +84,8 @@ export default function Experience() {
           ))}
         </ol>
 
-        <div className="mt-16">
-          <a href={profile.cvUrl} download className="hud-btn-primary">
-            Télécharger mon CV
-          </a>
+        <div className="mt-16 flex flex-wrap gap-4">
+          <CvButtons primary />
         </div>
       </section>
     </>
