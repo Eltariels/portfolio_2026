@@ -1,4 +1,5 @@
 import { profile } from '../data/profile'
+import ContactLink from './ContactLink'
 
 export default function Footer() {
   return (
@@ -13,9 +14,7 @@ export default function Footer() {
           <a href={profile.linkedin} target="_blank" rel="noreferrer" className="text-ink-300 transition-colors hover:text-cyan-300">
             LinkedIn
           </a>
-          <a href={`mailto:${profile.email}`} className="text-ink-300 transition-colors hover:text-cyan-300">
-            Contact
-          </a>
+          <ContactLink className="text-ink-300 transition-colors hover:text-cyan-300" />
         </div>
       </div>
     </footer>

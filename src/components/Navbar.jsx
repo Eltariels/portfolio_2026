@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import ContactLink from './ContactLink'
 
 const links = [
   { to: '/', label: 'Accueil', code: '00', end: true },
@@ -16,26 +17,29 @@ export default function Navbar() {
           <span className="text-cyan-400 group-hover:text-glow-cyan">T.</span>
           <span>Borella</span>
         </NavLink>
-        <ul className="flex items-center gap-1 sm:gap-2">
-          {links.map((link) => (
-            <li key={link.to}>
-              <NavLink
-                to={link.to}
-                end={link.end}
-                className={({ isActive }) =>
-                  `group flex items-center gap-1.5 border-b-2 px-3 py-2 font-ui text-sm font-semibold uppercase tracking-wide transition-colors ${
-                    isActive
-                      ? 'border-cyan-400 text-cyan-300'
-                      : 'border-transparent text-ink-300 hover:border-cyan-400/40 hover:text-cyan-200'
-                  }`
-                }
-              >
-                <span className="hidden font-mono text-[0.65rem] text-magenta-400/80 sm:inline">{link.code}</span>
-                {link.label}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
+        <div className="flex items-center gap-2 sm:gap-4">
+          <ul className="flex items-center gap-1 sm:gap-2">
+            {links.map((link) => (
+              <li key={link.to}>
+                <NavLink
+                  to={link.to}
+                  end={link.end}
+                  className={({ isActive }) =>
+                    `group flex items-center gap-1.5 border-b-2 px-3 py-2 font-ui text-sm font-semibold uppercase tracking-wide transition-colors ${
+                      isActive
+                        ? 'border-cyan-400 text-cyan-300'
+                        : 'border-transparent text-ink-300 hover:border-cyan-400/40 hover:text-cyan-200'
+                    }`
+                  }
+                >
+                  <span className="hidden font-mono text-[0.65rem] text-magenta-400/80 sm:inline">{link.code}</span>
+                  {link.label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+          <ContactLink className="hidden whitespace-nowrap border border-cyan-400/50 bg-cyan-500/10 px-3 py-1.5 font-ui text-xs font-semibold uppercase tracking-wide text-cyan-200 transition-colors hover:bg-cyan-500/20 hover:shadow-glow-cyan sm:inline-block" />
+        </div>
       </nav>
     </header>
   )
