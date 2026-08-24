@@ -69,6 +69,7 @@ export const experiences = [
       { label: 'araymond-mobility.com', url: 'https://www.araymond-mobility.com/en' },
       { label: 'exosens.com', url: 'https://www.exosens.com/fr' },
       { label: 'opinel.com', url: 'https://www.opinel.com/fr-fr/' },
+      { label: 'fromont-briens.com', url: 'https://fromont-briens.com' },
     ],
   },
 ]
