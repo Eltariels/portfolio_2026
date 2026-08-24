@@ -56,6 +56,28 @@ export default function Experience() {
                     </li>
                   ))}
                 </ul>
+
+                {exp.sites && exp.sites.length > 0 && (
+                  <div className="mt-5 border-t border-cyan-400/10 pt-4">
+                    <p className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-cyan-400/80">
+                      Sites réalisés
+                    </p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {exp.sites.map((site) => (
+                        <a
+                          key={site.url}
+                          href={site.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="chip inline-flex items-center gap-1.5 transition-colors hover:border-cyan-400/70 hover:text-cyan-300"
+                        >
+                          {site.label}
+                          <span aria-hidden="true" className="text-cyan-400">↗</span>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </li>
           ))}

@@ -31,6 +31,14 @@ export const experiences = [
       'Plateforme et application web en no-code',
       'Intégration pixel perfect de maquettes Figma',
     ],
+    sites: [
+      { label: 'fromageriejunges.com', url: 'https://fromageriejunges.com' },
+      { label: 'impression-edition-gironde.com', url: 'https://impression-edition-gironde.com' },
+      { label: 'distrisafe.fr', url: 'https://www.distrisafe.fr' },
+      { label: 'dgb-courtage.com', url: 'https://dgb-courtage.com' },
+      { label: 'lyceesaintefamille.com', url: 'https://lyceesaintefamille.com' },
+      { label: 'transicio.com', url: 'https://www.transicio.com' },
+    ],
   },
   {
     title: 'Alternance Développeur Web Full-Stack',
@@ -39,7 +47,11 @@ export const experiences = [
     period: '2024 - 2025',
     items: [
       'Développement intégral de sites web sous WordPress pour des particuliers / entreprises',
-      'Sites réalisés : Aux Creux des Montagnes, Brows&Cie',
+    ],
+    sites: [
+      { label: 'au-creux-des-montagnes.com', url: 'https://au-creux-des-montagnes.com' },
+      { label: 'd-et-c-plomberie.fr', url: 'https://d-et-c-plomberie.fr/plombier-amberieu-en-bugey/' },
+      { label: 'browsandcie.fr', url: 'https://browsandcie.fr' },
     ],
   },
   {
@@ -52,6 +64,11 @@ export const experiences = [
       'Conception et développement de deux projets full stack sous WordPress en tant que développeur principal',
       "Développement d'un site web complet sous Drupal, back-end et front-end",
       'Intégration de maquettes et développement front-end pour un autre site sous Drupal',
+    ],
+    sites: [
+      { label: 'araymond-mobility.com', url: 'https://www.araymond-mobility.com/en' },
+      { label: 'exosens.com', url: 'https://www.exosens.com/fr' },
+      { label: 'opinel.com', url: 'https://www.opinel.com/fr-fr/' },
     ],
   },
 ]
