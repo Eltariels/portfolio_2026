@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import Seo from '../components/Seo'
 import CvButtons from '../components/CvButtons'
+import Scene3D from '../components/hud3d/Scene3D'
+import DataCrystal from '../components/hud3d/DataCrystal'
 import { profile, formations } from '../data/profile'
 
 export default function About() {
@@ -15,6 +17,18 @@ export default function About() {
       {/* ===== INTRO ===== */}
       <section className="relative overflow-hidden px-6 pb-16 pt-24">
         <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full bg-hud-glow" />
+        <Scene3D
+          className="absolute right-0 top-0 -z-10 h-[420px] w-[420px] opacity-70"
+          camera={{ position: [0, 0, 4], fov: 45 }}
+          lights={
+            <>
+              <ambientLight intensity={0.5} />
+              <pointLight position={[3, 2, 3]} intensity={1.4} color="#3fd4ff" />
+            </>
+          }
+        >
+          <DataCrystal />
+        </Scene3D>
         <div className="mx-auto max-w-3xl">
           <p className="hud-tag mb-4">Dossier 01 — Profil</p>
           <h1 className="font-display text-3xl font-black uppercase text-ink-100 text-glow-cyan sm:text-4xl">

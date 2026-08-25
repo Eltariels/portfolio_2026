@@ -1,5 +1,7 @@
 import Seo from '../components/Seo'
 import CvButtons from '../components/CvButtons'
+import Scene3D from '../components/hud3d/Scene3D'
+import StarfieldParallax from '../components/hud3d/StarfieldParallax'
 import { experiences, profile } from '../data/profile'
 
 export default function Experience() {
@@ -24,6 +26,12 @@ export default function Experience() {
       {/* ===== INTRO ===== */}
       <section className="relative overflow-hidden px-6 pb-16 pt-24">
         <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full bg-hud-glow" />
+        <Scene3D
+          className="absolute inset-x-0 top-0 -z-10 h-[420px]"
+          camera={{ position: [0, 0, 1], fov: 60 }}
+        >
+          <StarfieldParallax />
+        </Scene3D>
         <div className="mx-auto max-w-3xl">
           <p className="hud-tag mb-4">Dossier 03 — Journal de bord</p>
           <h1 className="font-display text-3xl font-black uppercase text-ink-100 text-glow-cyan sm:text-4xl">

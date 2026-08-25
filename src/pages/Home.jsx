@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import Seo from '../components/Seo'
 import CvButtons from '../components/CvButtons'
+import Scene3D from '../components/hud3d/Scene3D'
+import HoloCore from '../components/hud3d/HoloCore'
 import { profile } from '../data/profile'
 
 const supportingStats = [
@@ -63,6 +65,18 @@ export default function Home() {
       {/* ===== HERO ===== */}
       <section className="relative overflow-hidden px-6 pb-20 pt-28 text-center sm:pt-36">
         <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full bg-hud-glow" />
+        <Scene3D
+          className="absolute inset-x-0 top-0 -z-10 h-[520px] opacity-70"
+          camera={{ position: [0, 0, 4], fov: 45 }}
+          lights={
+            <>
+              <ambientLight intensity={0.5} />
+              <pointLight position={[3, 3, 3]} intensity={1.5} color="#3fd4ff" />
+            </>
+          }
+        >
+          <HoloCore />
+        </Scene3D>
         <p className="hud-tag hero-in hero-in-delay-1 mx-auto mb-6 w-fit">Terminal d'identification</p>
         <h1 className="hero-in hero-in-delay-2 mx-auto max-w-4xl font-display text-4xl font-black uppercase leading-tight text-ink-100 text-glow-cyan sm:text-6xl">
           {profile.name}
