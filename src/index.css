@@ -163,11 +163,11 @@
     @apply flex flex-col gap-8 sm:flex-row sm:items-stretch sm:gap-0;
   }
   .stat-featured {
-    @apply sm:w-64 sm:flex-shrink-0 sm:border-r sm:border-cyan-400/15 sm:pr-8;
+    @apply sm:w-72 sm:flex-shrink-0 sm:border-r sm:border-cyan-400/15 sm:pr-8;
   }
   .stat-featured .stat-value {
-    @apply mt-3 font-display text-2xl uppercase leading-tight text-cyan-300 sm:text-3xl;
-    text-shadow: 0 0 18px rgba(63, 212, 255, 0.4);
+    @apply mt-3 font-display text-lg leading-snug text-cyan-300 sm:text-xl;
+    text-shadow: 0 0 14px rgba(63, 212, 255, 0.35);
   }
   .stat-cols {
     @apply flex flex-1 flex-col gap-6 sm:flex-row sm:gap-0;
