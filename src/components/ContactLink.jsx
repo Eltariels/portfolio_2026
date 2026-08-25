@@ -16,7 +16,7 @@ export default function ContactLink({ className = '', children = 'Contact' }) {
 
   return (
     <a href={`mailto:${profile.email}`} onClick={handleClick} className={className}>
-      {copied ? 'Adresse copiée !' : children}
+      {typeof children === 'function' ? children(copied) : copied ? 'Adresse copiée !' : children}
     </a>
   )
 }
