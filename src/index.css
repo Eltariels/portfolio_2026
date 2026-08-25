@@ -245,3 +245,47 @@
   70% { opacity: 1; }
   100% { opacity: 0; transform: scale(0.85); }
 }
+
+/* hero boot-up: each line rises in on its own beat, like a terminal
+   printing its identification block line by line. Delays are set per
+   element via .hero-in-delay-N so the cascade reads top to bottom. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-in {
+    animation: hero-line-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
+
+@keyframes hero-line-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.hero-in-delay-1 { animation-delay: 0.05s; }
+.hero-in-delay-2 { animation-delay: 0.15s; }
+.hero-in-delay-3 { animation-delay: 0.25s; }
+.hero-in-delay-4 { animation-delay: 0.35s; }
+.hero-in-delay-5 { animation-delay: 0.45s; }
+
+/* ambient drift on the hero glow blobs (cyan/magenta radial gradients) so
+   the backdrop reads as a live console rather than a flat printed image.
+   Safe to scale up: every section using .bg-hud-glow also sets
+   overflow-hidden, so the enlarged edges stay clipped. */
+@media (prefers-reduced-motion: no-preference) {
+  .bg-hud-glow {
+    animation: hud-glow-drift 9s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes hud-glow-drift {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-6%, 5%) scale(1.25); }
+  100% { transform: translate(6%, -4%) scale(1); }
+}

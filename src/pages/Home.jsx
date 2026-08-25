@@ -63,17 +63,17 @@ export default function Home() {
       {/* ===== HERO ===== */}
       <section className="relative overflow-hidden px-6 pb-20 pt-28 text-center sm:pt-36">
         <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full bg-hud-glow" />
-        <p className="hud-tag mx-auto mb-6 w-fit">Terminal d'identification</p>
-        <h1 className="mx-auto max-w-4xl font-display text-4xl font-black uppercase leading-tight text-ink-100 text-glow-cyan sm:text-6xl">
+        <p className="hud-tag hero-in hero-in-delay-1 mx-auto mb-6 w-fit">Terminal d'identification</p>
+        <h1 className="hero-in hero-in-delay-2 mx-auto max-w-4xl font-display text-4xl font-black uppercase leading-tight text-ink-100 text-glow-cyan sm:text-6xl">
           {profile.name}
         </h1>
-        <p className="mx-auto mt-5 max-w-xl font-ui text-xl font-semibold uppercase tracking-wide text-magenta-300 sm:text-2xl">
+        <p className="hero-in hero-in-delay-3 mx-auto mt-5 max-w-xl font-ui text-xl font-semibold uppercase tracking-wide text-magenta-300 sm:text-2xl">
           {profile.title}
         </p>
-        <p className="mx-auto mt-6 max-w-2xl font-ui text-lg text-ink-300">
+        <p className="hero-in hero-in-delay-4 mx-auto mt-6 max-w-2xl font-ui text-lg text-ink-300">
           {profile.bio}
         </p>
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <div className="hero-in hero-in-delay-5 mt-10 flex flex-wrap items-center justify-center gap-4">
           <Link to="/a-propos" className="hud-btn-primary">
             Découvrir mon parcours
           </Link>
