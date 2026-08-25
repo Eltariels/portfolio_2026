@@ -47,17 +47,24 @@ export default function About() {
           <h2 className="font-display text-2xl uppercase text-ink-100">Formations</h2>
         </div>
 
-        <ol className="space-y-10 border-l border-cyan-400/20 pl-8">
-          {formations.map((formation) => (
+        <ol className="space-y-8 border-l border-cyan-400/20 pl-8">
+          {formations.map((formation, index) => (
             <li key={formation.degree} className="relative">
               <span className="timeline-node" />
-              <p className="font-display text-lg uppercase text-cyan-300">{formation.degree}</p>
-              {formation.spec && (
-                <p className="mt-1 text-sm text-ink-300">{formation.spec}</p>
-              )}
-              <p className="mt-2 font-mono text-xs uppercase tracking-wide text-magenta-300">
-                {formation.period} · {formation.school}
-              </p>
+              <div
+                className={`hud-panel hud-corners hero-in hero-in-delay-${index + 1} relative overflow-hidden p-5 transition-colors duration-200 hover:border-cyan-400/60`}
+              >
+                <span className="ghost-index" aria-hidden="true">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <p className="relative font-display text-lg uppercase text-cyan-300">{formation.degree}</p>
+                {formation.spec && (
+                  <p className="relative mt-1 text-sm text-ink-300">{formation.spec}</p>
+                )}
+                <p className="relative mt-2 font-mono text-xs uppercase tracking-wide text-magenta-300">
+                  {formation.period} · {formation.school}
+                </p>
+              </div>
             </li>
           ))}
         </ol>
