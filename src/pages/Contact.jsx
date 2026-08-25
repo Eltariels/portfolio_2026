@@ -41,46 +41,50 @@ export default function Contact() {
       {/* ===== CANAUX ===== */}
       <section className="mx-auto max-w-3xl px-6 pb-16">
         <div className="grid gap-6 sm:grid-cols-2">
-          <div className="hud-panel hud-corners p-6">
-            <p className="font-mono text-xs text-magenta-400">01</p>
-            <h2 className="mt-1 font-display text-lg uppercase text-cyan-300">Email</h2>
-            <ContactLink className="mt-3 inline-block break-all font-ui text-ink-200 transition-colors hover:text-cyan-300">
+          <div className="hud-panel hud-corners relative p-6">
+            <span className="ghost-index" aria-hidden="true">01</span>
+            <p className="relative font-mono text-xs text-magenta-400">01</p>
+            <h2 className="relative mt-1 font-display text-lg uppercase text-cyan-300">Email</h2>
+            <ContactLink className="relative mt-3 inline-block break-all font-ui text-ink-200 transition-colors hover:text-cyan-300">
               {profile.email}
             </ContactLink>
-            <p className="mt-2 font-mono text-[0.65rem] uppercase tracking-wide text-ink-400">
+            <p className="relative mt-2 font-mono text-[0.65rem] uppercase tracking-wide text-ink-400">
               Clic = ouvre ta messagerie + copie l'adresse
             </p>
           </div>
 
-          <div className="hud-panel hud-corners p-6">
-            <p className="font-mono text-xs text-magenta-400">02</p>
-            <h2 className="mt-1 font-display text-lg uppercase text-cyan-300">Téléphone</h2>
+          <div className="hud-panel hud-corners relative p-6">
+            <span className="ghost-index" aria-hidden="true">02</span>
+            <p className="relative font-mono text-xs text-magenta-400">02</p>
+            <h2 className="relative mt-1 font-display text-lg uppercase text-cyan-300">Téléphone</h2>
             <a
               href={`tel:${profile.phone.replace(/\s+/g, '')}`}
-              className="mt-3 inline-block font-ui text-ink-200 transition-colors hover:text-cyan-300"
+              className="relative mt-3 inline-block font-ui text-ink-200 transition-colors hover:text-cyan-300"
             >
               {profile.phone}
             </a>
           </div>
 
-          <div className="hud-panel hud-corners p-6">
-            <p className="font-mono text-xs text-magenta-400">03</p>
-            <h2 className="mt-1 font-display text-lg uppercase text-cyan-300">LinkedIn</h2>
+          <div className="hud-panel hud-corners relative p-6">
+            <span className="ghost-index" aria-hidden="true">03</span>
+            <p className="relative font-mono text-xs text-magenta-400">03</p>
+            <h2 className="relative mt-1 font-display text-lg uppercase text-cyan-300">LinkedIn</h2>
             <a
               href={profile.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 inline-block break-all font-ui text-ink-200 transition-colors hover:text-cyan-300"
+              className="relative mt-3 inline-block break-all font-ui text-ink-200 transition-colors hover:text-cyan-300"
             >
               linkedin.com/in/theo-borella-developer-web
             </a>
           </div>
 
-          <div className="hud-panel hud-corners p-6">
-            <p className="font-mono text-xs text-magenta-400">04</p>
-            <h2 className="mt-1 font-display text-lg uppercase text-cyan-300">Base &amp; rayon</h2>
-            <p className="mt-3 font-ui text-ink-200">{profile.base}</p>
-            <p className="mt-1 font-mono text-[0.65rem] uppercase tracking-wide text-ink-400">
+          <div className="hud-panel hud-corners relative p-6">
+            <span className="ghost-index" aria-hidden="true">04</span>
+            <p className="relative font-mono text-xs text-magenta-400">04</p>
+            <h2 className="relative mt-1 font-display text-lg uppercase text-cyan-300">Base &amp; rayon</h2>
+            <p className="relative mt-3 font-ui text-ink-200">{profile.base}</p>
+            <p className="relative mt-1 font-mono text-[0.65rem] uppercase tracking-wide text-ink-400">
               {profile.location}
             </p>
           </div>

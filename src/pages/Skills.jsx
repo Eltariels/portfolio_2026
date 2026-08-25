@@ -25,21 +25,47 @@ export default function Skills() {
       </section>
 
       {/* ===== SKILL GROUPS ===== */}
+      {/* Asymmetric bento instead of a uniform grid: the group with the most
+          skills (dev web) leads as a wide featured card, the two smaller
+          groups stack alongside it — the layout follows the real data
+          instead of forcing every group into an identical box. */}
       <section className="mx-auto max-w-4xl px-6 pb-16">
-        <div className="grid gap-6 sm:grid-cols-2">
-          {skillGroups.map((group, i) => (
-            <div key={group.label} className="hud-panel hud-corners p-6">
-              <span className="font-mono text-xs text-magenta-400">0{i + 1}</span>
-              <h2 className="mt-1 font-display text-lg uppercase text-cyan-300">{group.label}</h2>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {group.skills.map((skill) => (
+        <div className="grid gap-6 lg:grid-cols-[1.7fr_1fr]">
+          {skillGroups[0] && (
+            <div className="hud-panel hud-corners relative p-6 sm:p-8">
+              <span className="ghost-index" aria-hidden="true">01</span>
+              <span className="relative font-mono text-xs text-magenta-400">01</span>
+              <h2 className="relative mt-1 font-display text-xl uppercase text-cyan-300">
+                {skillGroups[0].label}
+              </h2>
+              <div className="relative mt-5 flex flex-wrap gap-2">
+                {skillGroups[0].skills.map((skill) => (
                   <span key={skill.name} className="chip">
                     {skill.name}
                   </span>
                 ))}
               </div>
             </div>
-          ))}
+          )}
+
+          <div className="flex flex-col gap-6">
+            {skillGroups.slice(1).map((group, i) => (
+              <div key={group.label} className="hud-panel hud-corners relative flex-1 p-6">
+                <span className="ghost-index" aria-hidden="true">0{i + 2}</span>
+                <span className="relative font-mono text-xs text-magenta-400">0{i + 2}</span>
+                <h2 className="relative mt-1 font-display text-lg uppercase text-cyan-300">
+                  {group.label}
+                </h2>
+                <div className="relative mt-4 flex flex-wrap gap-2">
+                  {group.skills.map((skill) => (
+                    <span key={skill.name} className="chip">
+                      {skill.name}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

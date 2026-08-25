@@ -3,8 +3,7 @@ import Seo from '../components/Seo'
 import CvButtons from '../components/CvButtons'
 import { profile } from '../data/profile'
 
-const stats = [
-  { label: 'Statut', value: profile.status },
+const supportingStats = [
   { label: 'Base', value: profile.base },
   { label: 'Rayon', value: 'Chambéry · Lyon · Grenoble · Annecy' },
   { label: 'Spécialité', value: profile.specialty },
@@ -83,14 +82,20 @@ export default function Home() {
       </section>
 
       {/* ===== STATS BAR ===== */}
-      <section className="border-y border-cyan-400/10 bg-void-900/40 px-6 py-10">
-        <div className="mx-auto grid max-w-6xl gap-4 sm:grid-cols-4">
-          {stats.map((stat) => (
-            <div key={stat.label} className="stat-tile">
-              <p className="stat-label">{stat.label}</p>
-              <p className="stat-value">{stat.value}</p>
-            </div>
-          ))}
+      <section className="border-y border-cyan-400/10 bg-void-900/40 px-6 py-12">
+        <div className="mx-auto max-w-6xl stat-strip">
+          <div className="stat-featured">
+            <p className="stat-label">Statut</p>
+            <p className="stat-value">{profile.status}</p>
+          </div>
+          <div className="stat-cols">
+            {supportingStats.map((stat) => (
+              <div key={stat.label} className="stat-col">
+                <p className="stat-label">{stat.label}</p>
+                <p className="stat-value">{stat.value}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -108,10 +113,11 @@ export default function Home() {
               to={teaser.to}
               className="hud-panel hud-corners group flex flex-col gap-3 p-6 transition-transform duration-200 hover:-translate-y-1 hover:border-cyan-400/60 hover:shadow-glow-cyan"
             >
-              <span className="font-mono text-xs text-magenta-400">{teaser.code}</span>
-              <h3 className="font-display text-lg uppercase text-cyan-300">{teaser.title}</h3>
-              <p className="text-sm text-ink-300">{teaser.text}</p>
-              <span className="mt-auto font-mono text-xs uppercase tracking-widest text-cyan-400 group-hover:text-glow-cyan">
+              <span className="ghost-index" aria-hidden="true">{teaser.code}</span>
+              <span className="relative font-mono text-xs text-magenta-400">{teaser.code}</span>
+              <h3 className="relative font-display text-lg uppercase text-cyan-300">{teaser.title}</h3>
+              <p className="relative text-sm text-ink-300">{teaser.text}</p>
+              <span className="relative mt-auto font-mono text-xs uppercase tracking-widest text-cyan-400 group-hover:text-glow-cyan">
                 Accéder →
               </span>
             </Link>

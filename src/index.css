@@ -135,13 +135,10 @@
     @apply rounded-sm border border-cyan-400/25 bg-void-700/60 px-3 py-1.5 font-mono text-xs uppercase tracking-wide text-ink-200;
   }
 
-  .stat-tile {
-    @apply hud-panel px-5 py-4;
-  }
-  .stat-tile .stat-label {
+  .stat-label {
     @apply font-mono text-[0.65rem] uppercase tracking-[0.2em] text-cyan-400/80;
   }
-  .stat-tile .stat-value {
+  .stat-value {
     @apply mt-1 font-display text-sm text-ink-100;
   }
 
@@ -149,6 +146,34 @@
      (h-3/w-3) diamond on that line: -(32px + 6px half-width) = -38px */
   .timeline-node {
     @apply absolute -left-[38px] top-1.5 h-3 w-3 rotate-45 border border-cyan-400 bg-void-900 shadow-glow-cyan;
+  }
+
+  /* oversized, near-invisible index numeral sitting behind a card's own
+     content — a modern "watermark" index instead of a small inline tag.
+     Kept inside the box (not a negative offset): hud-panel clips via
+     clip-path, which crops anything positioned outside its own box, so a
+     true bleed-above-the-edge would just vanish. */
+  .ghost-index {
+    @apply pointer-events-none absolute left-4 top-1 select-none font-display text-6xl font-black leading-none text-cyan-400/[0.09] sm:text-7xl;
+  }
+
+  /* stat strip: one featured stat + supporting columns separated by hairlines
+     instead of identical boxed tiles side by side */
+  .stat-strip {
+    @apply flex flex-col gap-8 sm:flex-row sm:items-stretch sm:gap-0;
+  }
+  .stat-featured {
+    @apply sm:w-64 sm:flex-shrink-0 sm:border-r sm:border-cyan-400/15 sm:pr-8;
+  }
+  .stat-featured .stat-value {
+    @apply mt-3 font-display text-2xl uppercase leading-tight text-cyan-300 sm:text-3xl;
+    text-shadow: 0 0 18px rgba(63, 212, 255, 0.4);
+  }
+  .stat-cols {
+    @apply flex flex-1 flex-col gap-6 sm:flex-row sm:gap-0;
+  }
+  .stat-col {
+    @apply flex-1 border-cyan-400/10 sm:border-l sm:px-8 sm:first:border-l-0 sm:first:pl-8;
   }
 }
 

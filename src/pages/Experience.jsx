@@ -36,27 +36,36 @@ export default function Experience() {
       </section>
 
       {/* ===== TIMELINE ===== */}
-      <section className="mx-auto max-w-3xl px-6 pb-16">
+      {/* Each entry leads with its period as a large, dedicated column
+          instead of a small inline tag sharing the header row with the
+          title — the period is what a recruiter's eye scans a timeline
+          for first, so it gets real visual weight. */}
+      <section className="mx-auto max-w-4xl px-6 pb-16">
         <ol className="space-y-12 border-l border-cyan-400/20 pl-8">
           {experiences.map((exp) => (
             <li key={`${exp.company}-${exp.period}`} className="relative">
               <span className="timeline-node" />
-              <div className="hud-panel hud-corners p-6">
-                <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <h2 className="font-display text-lg uppercase text-cyan-300">{exp.title}</h2>
-                  <span className="font-mono text-xs uppercase tracking-wide text-magenta-300">{exp.period}</span>
+              <div className="hud-panel hud-corners flex flex-col gap-6 p-6 sm:flex-row sm:gap-8 sm:p-8">
+                <div className="flex flex-row items-baseline gap-3 sm:w-40 sm:flex-shrink-0 sm:flex-col sm:items-start sm:gap-2 sm:border-r sm:border-cyan-400/15 sm:pr-6">
+                  <p className="font-display text-xl uppercase leading-none text-cyan-300 sm:text-2xl">
+                    {exp.period}
+                  </p>
+                  <p className="font-mono text-[0.65rem] uppercase tracking-wide text-magenta-300 sm:tracking-[0.15em]">
+                    {exp.company}
+                  </p>
                 </div>
-                <p className="mt-1 font-mono text-xs uppercase tracking-wide text-ink-400">
-                  <span className="text-cyan-400">{exp.company}</span> — {exp.place}
-                </p>
-                <ul className="mt-5 space-y-2.5">
-                  {exp.items.map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-sm text-ink-200">
-                      <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rotate-45 bg-cyan-400/80" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+
+                <div className="min-w-0 flex-1">
+                  <h2 className="font-display text-lg uppercase text-ink-100">{exp.title}</h2>
+                  <p className="mt-1 font-mono text-xs uppercase tracking-wide text-ink-400">{exp.place}</p>
+                  <ul className="mt-5 space-y-2.5">
+                    {exp.items.map((item) => (
+                      <li key={item} className="flex items-start gap-3 text-sm text-ink-200">
+                        <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rotate-45 bg-cyan-400/80" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
 
                 {exp.sites && exp.sites.length > 0 && (
                   <div className="mt-5 border-t border-cyan-400/10 pt-4">
@@ -93,6 +102,7 @@ export default function Experience() {
                     </div>
                   </div>
                 )}
+                </div>
               </div>
             </li>
           ))}

@@ -28,12 +28,12 @@ export default function About() {
 
       {/* ===== FACTS ===== */}
       <section className="border-y border-cyan-400/10 bg-void-900/40 px-6 py-10">
-        <div className="mx-auto grid max-w-3xl gap-4 sm:grid-cols-2">
-          <div className="stat-tile">
+        <div className="mx-auto max-w-3xl stat-cols">
+          <div className="stat-col">
             <p className="stat-label">Localisation</p>
             <p className="stat-value">{profile.location}</p>
           </div>
-          <div className="stat-tile">
+          <div className="stat-col">
             <p className="stat-label">Centres d'intérêt</p>
             <p className="stat-value">{profile.hobbies}</p>
           </div>
