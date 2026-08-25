@@ -16,6 +16,21 @@
     @apply bg-void-950 text-ink-100 font-ui antialiased;
     background-image: theme('backgroundImage.hud-glow');
     background-attachment: fixed;
+    position: relative;
+  }
+
+  /* film-grain overlay: SVG fractal-noise tile, no image request, sits above
+     everything at very low opacity so it never hurts legibility */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    pointer-events: none;
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
   }
 
   h1, h2, h3, h4 {
