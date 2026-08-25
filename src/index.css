@@ -186,14 +186,17 @@
   }
 }
 
-/* every hud3d/Scene3D canvas is a square DOM box — without this, any 3D
-   content that grows near its edges (e.g. an expanding pulse ring) gets
-   hard-clipped by that square, reading as a shape trapped in a window
-   frame. Fading the box itself out radially means content dissolves into
-   the page before it ever reaches an edge, square or not. */
+/* every hud3d/Scene3D canvas is a rectangular DOM box — without this, any 3D
+   content that grows near its edges (e.g. an expanding pulse ring, or a
+   wireframe sphere taller than the box) gets hard-clipped by that
+   rectangle, reading as a shape trapped in a window frame. `ellipse` (not
+   `circle`) is required here: circle's implicit radius is measured to the
+   box's farthest CORNER, so on a box far wider than it is tall the fade
+   barely reaches inward along the short axis at all — ellipse instead
+   scales to the box's actual width and height independently. */
 .scene3d-fade {
-  mask-image: radial-gradient(circle at center, black 40%, transparent 75%);
-  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 75%);
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
 }
 
 /* custom HUD cursor: swaps the system pointer for a cyan reticle. Only

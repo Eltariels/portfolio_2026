@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Edges } from '@react-three/drei'
 import { DoubleSide } from 'three'
+import usePointer from './usePointer'
 
 const RING_COUNT = 3
 const CYCLE = 2.4
@@ -35,11 +36,12 @@ export default function SignalBeacon() {
   const group = useRef(null)
   const core = useRef(null)
   const shell = useRef(null)
+  const pointer = usePointer()
 
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     if (group.current) {
-      const targetX = state.pointer.y * 0.3
-      const targetY = state.pointer.x * 0.35
+      const targetX = pointer.current.y * 0.3
+      const targetY = pointer.current.x * 0.35
       group.current.rotation.x += (targetX - group.current.rotation.x) * 0.04
       group.current.rotation.y += (targetY - group.current.rotation.y) * 0.04
     }

@@ -66,7 +66,7 @@ export default function Home() {
       <section className="relative overflow-hidden px-6 pb-20 pt-28 text-center sm:pt-36">
         <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full bg-hud-glow" />
         <Scene3D
-          className="absolute inset-x-0 top-0 -z-10 h-[520px] opacity-70"
+          className="absolute left-1/2 top-0 -z-10 h-[520px] w-[520px] max-w-[90vw] -translate-x-1/2 opacity-70"
           camera={{ position: [0, 0, 4], fov: 45 }}
           lights={
             <>

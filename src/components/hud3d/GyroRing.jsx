@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
+import usePointer from './usePointer'
 
 function Ring({ radius, tube, speed, axis, color }) {
   const ref = useRef(null)
@@ -18,11 +19,12 @@ function Ring({ radius, tube, speed, axis, color }) {
 // a navigation-instrument gyroscope rather than a literal planet/moon.
 export default function GyroRing() {
   const group = useRef(null)
+  const pointer = usePointer()
 
-  useFrame((state) => {
+  useFrame(() => {
     if (group.current) {
-      const targetX = 0.35 + state.pointer.y * 0.25
-      const targetZ = state.pointer.x * 0.25
+      const targetX = 0.35 + pointer.current.y * 0.25
+      const targetZ = pointer.current.x * 0.25
       group.current.rotation.x += (targetX - group.current.rotation.x) * 0.03
       group.current.rotation.z += (targetZ - group.current.rotation.z) * 0.03
     }
