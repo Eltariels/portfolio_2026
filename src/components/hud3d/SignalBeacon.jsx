@@ -12,7 +12,7 @@ function Pulse({ offset }) {
 
   useFrame((state) => {
     const t = ((state.clock.elapsedTime + offset) % CYCLE) / CYCLE
-    if (ring.current) ring.current.scale.setScalar(0.35 + t * 2.1)
+    if (ring.current) ring.current.scale.setScalar(0.35 + t * 1.2)
     if (material.current) material.current.opacity = 0.85 * (1 - t)
   })
 

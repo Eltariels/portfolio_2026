@@ -186,6 +186,16 @@
   }
 }
 
+/* every hud3d/Scene3D canvas is a square DOM box — without this, any 3D
+   content that grows near its edges (e.g. an expanding pulse ring) gets
+   hard-clipped by that square, reading as a shape trapped in a window
+   frame. Fading the box itself out radially means content dissolves into
+   the page before it ever reaches an edge, square or not. */
+.scene3d-fade {
+  mask-image: radial-gradient(circle at center, black 40%, transparent 75%);
+  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 75%);
+}
+
 /* custom HUD cursor: swaps the system pointer for a cyan reticle. Only
    engaged on fine-pointer devices with motion allowed (see Cursor.jsx) —
    .has-custom-cursor is added by that component, never assume it's present. */

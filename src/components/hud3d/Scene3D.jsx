@@ -16,7 +16,7 @@ export default function Scene3D({ className = '', camera, lights, children }) {
   if (!enabled) return null
 
   return (
-    <div className={`pointer-events-none ${className}`} aria-hidden="true">
+    <div className={`scene3d-fade pointer-events-none ${className}`} aria-hidden="true">
       <Canvas camera={camera} dpr={[1, 1.5]} gl={{ alpha: true, antialias: true }}>
         {lights}
         <Suspense fallback={null}>{children}</Suspense>
