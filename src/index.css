@@ -277,15 +277,19 @@
 /* ambient drift on the hero glow blobs (cyan/magenta radial gradients) so
    the backdrop reads as a live console rather than a flat printed image.
    Safe to scale up: every section using .bg-hud-glow also sets
-   overflow-hidden, so the enlarged edges stay clipped. */
+   overflow-hidden, so the enlarged edges stay clipped.
+   Opacity is pulsed too (not just position) because `body` paints the same
+   gradient underneath, static — a plain move alone got largely absorbed
+   into that identical fixed layer and read as motionless. */
 @media (prefers-reduced-motion: no-preference) {
   .bg-hud-glow {
-    animation: hud-glow-drift 9s ease-in-out infinite alternate;
+    animation: hud-glow-drift 6s ease-in-out infinite alternate;
+    will-change: transform, opacity;
   }
 }
 
 @keyframes hud-glow-drift {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-6%, 5%) scale(1.25); }
-  100% { transform: translate(6%, -4%) scale(1); }
+  0% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+  50% { transform: translate(-9%, 7%) scale(1.45); opacity: 1; }
+  100% { transform: translate(9%, -6%) scale(1); opacity: 0.6; }
 }
