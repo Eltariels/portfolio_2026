@@ -1,6 +1,7 @@
 import Seo from '../components/Seo'
 import ContactLink from '../components/ContactLink'
 import CvButtons from '../components/CvButtons'
+import CoverageRadar from '../components/CoverageRadar'
 import { profile } from '../data/profile'
 
 const iconProps = {
@@ -90,7 +91,7 @@ export default function Contact() {
       {/* ===== CANAUX ===== */}
       <section className="mx-auto max-w-3xl px-6 pb-16">
         <div className="grid gap-6 sm:grid-cols-2">
-          <ContactLink className={cardClass}>
+          <ContactLink className={`${cardClass} hero-in hero-in-delay-1`}>
             {(copied) => (
               <>
                 <span className="ghost-index" aria-hidden="true">01</span>
@@ -109,7 +110,7 @@ export default function Contact() {
             )}
           </ContactLink>
 
-          <a href={`tel:${profile.phone.replace(/\s+/g, '')}`} className={cardClass}>
+          <a href={`tel:${profile.phone.replace(/\s+/g, '')}`} className={`${cardClass} hero-in hero-in-delay-2`}>
             <span className="ghost-index" aria-hidden="true">02</span>
             <div className="relative flex items-center justify-between">
               <PhoneIcon className="h-6 w-6 text-cyan-400 transition-colors group-hover:text-cyan-300" />
@@ -128,7 +129,7 @@ export default function Contact() {
             href={profile.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className={cardClass}
+            className={`${cardClass} hero-in hero-in-delay-3`}
           >
             <span className="ghost-index" aria-hidden="true">03</span>
             <div className="relative flex items-center justify-between">
@@ -144,7 +145,7 @@ export default function Contact() {
             </p>
           </a>
 
-          <div className="hud-panel hud-corners relative flex flex-col p-6">
+          <div className="hud-panel hud-corners hero-in hero-in-delay-4 relative flex flex-col p-6">
             <span className="ghost-index" aria-hidden="true">04</span>
             <div className="relative flex items-center justify-between">
               <MapPinIcon className="h-6 w-6 text-cyan-400" />
@@ -156,6 +157,15 @@ export default function Contact() {
               {profile.location}
             </p>
           </div>
+        </div>
+
+        {/* ===== RADAR ===== */}
+        <div className="hud-panel hud-corners hero-in hero-in-delay-5 relative mt-6 p-6 sm:p-8">
+          <span className="hud-tag mb-1 block">Scan — rayon d'intervention</span>
+          <p className="relative mb-4 font-mono text-[0.65rem] uppercase tracking-wide text-ink-400">
+            Ambérieu-en-Bugey · déplacement possible sur les 4 villes
+          </p>
+          <CoverageRadar />
         </div>
 
         <div className="mt-12 flex flex-wrap gap-4">
