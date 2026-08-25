@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import InteractiveGrid from './components/InteractiveGrid'
 import PageStinger from './components/PageStinger'
+import Cursor from './components/Cursor'
 import { RELOAD_FLAG_KEY } from './components/RouteError'
 
 export default function App() {
@@ -17,6 +18,7 @@ export default function App() {
     <div className="flex min-h-screen flex-col">
       <InteractiveGrid />
       <PageStinger />
+      <Cursor />
       <Navbar />
       <main className="flex-1">
         <div key={location.pathname} className="page-transition">
