@@ -80,7 +80,7 @@ export default function Contact() {
       <section className="relative overflow-hidden px-6 pb-16 pt-24">
         <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full bg-hud-glow" />
         <Scene3D
-          className="absolute right-0 top-0 -z-10 h-[380px] w-[380px] opacity-65"
+          className="absolute inset-y-0 right-0 -z-10 w-[380px] max-w-[80vw] opacity-65"
           camera={{ position: [0, 0, 4], fov: 45 }}
           lights={
             <>

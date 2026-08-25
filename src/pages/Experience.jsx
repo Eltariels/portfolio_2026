@@ -27,7 +27,7 @@ export default function Experience() {
       <section className="relative overflow-hidden px-6 pb-16 pt-24">
         <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full bg-hud-glow" />
         <Scene3D
-          className="absolute inset-x-0 top-0 -z-10 h-[420px]"
+          className="absolute inset-0 -z-10"
           camera={{ position: [0, 0, 1], fov: 60 }}
         >
           <StarfieldParallax />

@@ -16,7 +16,7 @@ export default function Skills() {
       <section className="relative overflow-hidden px-6 pb-16 pt-24">
         <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full bg-hud-glow" />
         <Scene3D
-          className="absolute right-0 top-0 -z-10 h-[420px] w-[420px] opacity-70"
+          className="absolute inset-y-0 right-0 -z-10 w-[420px] max-w-[80vw] opacity-70"
           camera={{ position: [0, 0, 4], fov: 45 }}
           lights={
             <>
